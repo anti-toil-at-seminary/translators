@@ -1,0 +1,137 @@
+version: "3"
+vars:
+  DEFAULT_TEST_FILES:
+    - "Bookshop.org/my_orders/R000999000"
+  DEFAULT: "DEFAULT"
+  TEST_PAGES_DIR: '{{ .ROOT_DIR }}/test_pages'
+  INSERT_SED: '^[[:blank:]]*var testCases[[:blank:]]*=[[:blank:]]*\['
+  INSERT_REGEX: 'var testCases\s*=\s*\[\s*(?=\{)'
+tasks:
+  setup-file-tests:
+    aliases: ["setup-tests", "test-setup"]
+    vars:
+      ARGS: '{{ .CLI_ARGS }}'
+      DEFAULT_TEST_FILES:
+        ref:  .DEFAULT_TEST_FILES
+    cmds:
+      - if: 'test -n "{{ .CLI_ARGS }}"'
+        for:
+          var: ARGS
+          split: ','
+          as: ITEM
+        task: setup-individual-file
+        vars:
+          TEST_FILE: '{{ .ITEM }}'
+        
+      - if: 'test -z "{{ .CLI_ARGS }}"'
+        for:
+          var: DEFAULT_TEST_FILES
+          as: ITEM
+        task: setup-individual-file
+        vars:
+          TEST_FILE: '{{ .ITEM }}'
+
+  diff-file-tests:
+    aliases: ["diff-tests", "test-diff", "dtf"]
+    vars:
+      ARGS: '{{ .CLI_ARGS }}'
+      DEFAULT_TEST_FILES:
+        ref:  .DEFAULT_TEST_FILES
+    cmds:
+      - if: 'test -n "{{ .CLI_ARGS }}"'
+        for:
+          var: ARGS
+          split: ','
+          as: ITEM
+        task: diff-test-file
+        vars:
+          TEST_FILE: '{{ .ITEM }}'
+        
+      - if: 'test -z "{{ .CLI_ARGS }}"'
+        for:
+          var: DEFAULT_TEST_FILES
+          as: ITEM
+        task: diff-test-file
+        vars:
+          TEST_FILE: '{{ .ITEM }}'
+          
+  restore-file-tests:
+    aliases: ["restore-tests", "test-restore", "rtf"]
+    vars:
+      ARGS: '{{ .CLI_ARGS }}'
+      DEFAULT_TEST_FILES:
+        ref:  .DEFAULT_TEST_FILES
+    cmds:
+      - if: 'test -n "{{ .CLI_ARGS }}"'
+        for:
+          var: ARGS
+          split: ','
+          as: ITEM
+        task: restore-file-from-test
+        vars:
+          TEST_FILE: '{{ .ITEM }}'
+        
+      - if: 'test -z "{{ .CLI_ARGS }}"'
+        for:
+          var: DEFAULT_TEST_FILES
+          as: ITEM
+        task: restore-file-from-test
+        vars:
+          TEST_FILE: '{{ .ITEM }}'
+  
+  diff-test-file:
+    status:
+      - test -f '{{ .BACKUP_FILE }}
+    vars: &testfile_vars
+      SOURCE_FILE: '{{ regexReplaceAll "/.*" .TEST_FILE "" }}.js'
+      BACKUP_FILE: '{{ .SOURCE_FILE }}.bak'
+      TEST_SOURCE_FILE: '{{ .TEST_PAGES_DIR }}/{{ .TEST_FILE }}'
+      INSERT_FILE: '{{ .TEST_PAGES_DIR }}/{{ .TEST_FILE }}-expected.yml'
+    cmds:
+      - diff {{ .SOURCE_FILE }} {{ .BACKUP_FILE }}
+  
+  restore-file-from-test:
+    requires:
+      vars: ["TEST_FILE"]
+    vars: *testfile_vars
+    status:
+      - test -f '{{ .BACKUP_FILE }}'
+    cmds:
+      - mv {{ .BACKUP_FILE }} {{ .SOURCE_FILE }}
+          
+  setup-individual-file:
+    internal: true
+    requires:
+      vars: ["TEST_FILE"]
+    vars: *testfile_vars
+    cmds:
+      - echo {{ .TEST_FILE }}
+      - echo {{ .SOURCE_FILE }}
+      - cp {{ .SOURCE_FILE }} {{ .BACKUP_FILE }}
+      - > 
+        yq '.[].url = "file:///{{ .TEST_SOURCE_FILE }}"' {{ .INSERT_FILE }} 
+        | sed '1s;^\([[:space:]]*\)\[;\1;'
+        | sed '$ s/\]\([[:space:]]*\)$/\1/'
+        tail -n +2 | head -n -2 |
+        > {{ .INSERT_FILE }}.tmp
+        
+      - >
+        sed -i -e '/{{ .INSERT_SED }}/r 1!{ $!{ r f{{ .INSERT_FILE }}}}' 
+        -e '/{{ .INSERT_SED }}/{p; w /dev/stdout' -e '}' {{ .SOURCE_FILE }}
+      - >
+        # sed -ie '/{{ .INSERT_SED }}/r {{ .INSERT_FILE }}' 
+        # 's/{{ .INSERT_SED }}/&/' {{ .SOURCE_FILE }} w /dev/stdout
+
+  ci-install:
+    sources:
+      - package.json
+      - package-lock.json
+    cmds:
+      - npm ci
+      - npx playwright install chromium
+  ci-check:
+    deps:
+      - "ci-install"
+    dir: ".ci/pull-request-check"
+    cmds:
+      - ./check-pull-request.sh

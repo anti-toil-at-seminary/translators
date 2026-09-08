@@ -1,0 +1,48 @@
+[project]
+name = "translators-tools"
+dynamic = ["version", "readme"]
+description = "tools for working with things around translators"
+requires-python = "~=3.14"
+license = "GPL-3.0-only"
+authors = [{name="Dandelion Good", email = "dandeliongood@proton.me"}]
+
+dependencies = [
+    "beautifulsoup4~=4.13",
+    "requests~=2.32",
+    "pyyaml~=6.0",
+]
+
+[project.optional-dependencies]
+lint = ["black~=25.1"]
+profile = ["snakeviz~=2.2"]
+type = [
+    "types-PyYAML~=6.0",
+    "pytest-mypy~=1.0",
+    "types-icalendar",
+    "types-requests",
+    "mypy~=1.18"
+]
+clean = [
+    "coverage~=7.12"
+]
+
+[project.scripts]
+scraper = "danditools.scraper:main"
+xrandr-parse = "danditools.xrandr_parse:main"
+blog-combine = "danditools.blog_combine:main"
+cleanup-transcript = "danditools.cleanup_transcript:main"
+cat-html = "danditools.cat_html:main"
+pdf-split = "danditools.pdf:split"
+pdf-demo = "danditools.pdf:demo"
+tex-wc = "danditex.word_count:main"
+
+[tool.setuptools_scm]
+
+[tool.black]
+line-length = 80
+
+[tool.setuptools.dynamic]
+readme = {file = ["README.md"], content-type = "text/markdown"}
+[build-system]
+requires = ["setuptools>=80", "setuptools-scm[simple]>=8", "wheel"]
+build-backend = "setuptools.build_meta"
