@@ -1,0 +1,127 @@
+[
+	{
+		"type": "web",
+		"url": "file:///home/dandelion/src/translators/test_pages/Bookshop.org/my_orders/R000999000",
+		"detectedItemType": "multiple",
+		"items": [
+			{
+				"itemType": "book",
+				"title": "Discourse on Colonialism",
+				"creators": [
+					{
+						"firstName": "Aimé",
+						"lastName": "Césaire",
+						"creatorType": "author"
+					}
+				],
+				"date": "2001-01-01T00:00:00-05:00",
+				"ISBN": "9781583670255",
+				"abstractNote": "\"Césaire's essay stands as an important document in the development of third world consciousness--a process in which [he] played a prominent role.\"--Library Journal This classic work, first published in France in 1955, profoundly influenced the generation of scholars and activists at the forefront of liberation struggles in Africa, Latin America, and the Caribbean. Nearly twenty years later, when published for the first time in English, Discourse on Colonialism inspired a new generation engaged in the Civil Rights, Black Power, and anti-war movements and has sold more than 75,000 copies to date. Aimé Césaire eloquently describes the brutal impact of capitalism and colonialism on both the colonizer and colonized, exposing the contradictions and hypocrisy implicit in western notions of \"progress\" and \"civilization\" upon encountering the \"savage,\" \"uncultured,\" or \"primitive.\" Here, Césaire reaffirms African values, identity, and culture, and their relevance, reminding us that \"the relationship between consciousness and reality are extremely complex. . . . It is equally necessary to decolonize our minds, our inner life, at the same time that we decolonize society.\" An interview with Césaire by the poet René Depestre is also included.",
+				"language": "en-US",
+				"libraryCatalog": "bookshop.org",
+				"numPages": 102,
+				"publisher": "Monthly Review Press",
+				"url": "https://bookshop.org/p/books/discourse-on-colonialism-aime-cesaire/578879",
+				"attachments": [],
+				"tags": [],
+				"notes": [],
+				"seeAlso": []
+			},
+			{
+				"itemType": "book",
+				"title": "The Writing on the Wall: Signs of Faith Against Fascism",
+				"creators": [
+					{
+						"firstName": "Eric",
+						"lastName": "Martin",
+						"creatorType": "author"
+					}
+				],
+				"date": "2023-07-12T00:00:00-04:00",
+				"ISBN": "9781666759099",
+				"abstractNote": "How can people of faith connect their religious traditions with the rise of overtly fascist violence in the United States? That's the question this book takes up. With first-hand accounts from the largest white supremacist gathering in modern American history at Unite the Right in Charlottesville, Virginia, it shares how the clergy resisting Nazis and the KKK point a way forward for Christians in particular. But The Writing on the Wall expands outward to ask what churches can learn from antifascists, Black Lives Matter, and those working on the ground to combat the continuing coalition of far-right militias and gangs that promise to endure with or without Trump in office. In the wake of a deadly Capitol insurrection robed in Christian imagery, this book invites the faithful to imagine a counter-witness that does more than merely preach against hate. Using biblical exegesis, storytelling, interviews, thought experiments, art, and theology, The Writing on the Wall explores how we can rethink notions of civil disobedience, nonviolence, love, prayer, and liturgy to enflesh a worthy faith in the face of a fascist creep.",
+				"language": "en-US",
+				"libraryCatalog": "bookshop.org",
+				"url": "https://bookshop.org/p/books/the-writing-on-the-wall-signs-of-faith-against-fascism-eric-martin/20239405",
+				"publisher": "Cascade Books",
+				"numPages": 204,
+				"shortTitle": "The Writing on the Wall",
+				"attachments": [],
+				"tags": [],
+				"notes": [],
+				"seeAlso": []
+			},
+			{
+				"itemType": "book",
+				"title": "Anabaptist Essentials: Ten Signs of a Unique Christian Faith",
+				"creators": [
+					{
+						"firstName": "Palmer",
+						"lastName": "Becker",
+						"creatorType": "author"
+					}
+				],
+				"date": "2017-03-07T00:00:00-05:00",
+				"ISBN": "9781513800417",
+				"abstractNote": "What is the essence of Anabaptism?Jesus. Community. Reconciliation. These sum up the core values of Anabaptist faith and life, writes pastor Palmer Becker in this concise new resource. In Anabaptist Essentials, Becker introduces readers to the key convictions and practices of Anabaptism, the Christian tradition of the Amish, Mennonites, and Brethren in Christ. From the believers within a sixteenth-century movement to those today who try to follow Jesus, create community, and practice peace, Anabaptists have a rich witness to offer the wider world. Designed for study by small groups and for use as a resource for Christian formation and conversation, this clear, readable guide to what makes Anabaptism unique will equip readers to live out a more radical commitment to Jesus.",
+				"language": "en-US",
+				"libraryCatalog": "bookshop.org",
+				"url": "https://bookshop.org/p/books/anabaptist-essentials-ten-signs-of-a-unique-christian-faith-palmer-becker/9063769",
+				"publisher": "Herald Press (VA)",
+				"numPages": 182,
+				"shortTitle": "Anabaptist Essentials",
+				"attachments": [],
+				"tags": [],
+				"notes": [],
+				"seeAlso": []
+			},
+			{
+				"itemType": "book",
+				"title": "The Anatomy of Fascism",
+				"creators": [
+					{
+						"firstName": "Robert O.",
+						"lastName": "Paxton",
+						"creatorType": "author"
+					}
+				],
+				"date": "2005-03-08T00:00:00-05:00",
+				"ISBN": "9781400033911",
+				"abstractNote": "What is fascism? By focusing on the concrete: what the fascists did, rather than what they said, the esteemed historian Robert O. Paxton answers this question.From the first violent uniformed bands beating up “enemies of the state,” through Mussolini’s rise to power, to Germany’s fascist radicalization in World War II, Paxton shows clearly why fascists came to power in some countries and not others, and explores whether fascism could exist outside the early-twentieth-century European setting in which it emerged. \"A deeply intelligent and very readable book. . . . Historical analysis at its best.\" –The Economist The Anatomy of Fascism will have a lasting impact on our understanding of modern European history, just as Paxton’s classic Vichy France redefined our vision of World War II. Based on a lifetime of research, this compelling and important book transforms our knowledge of fascism–“the major political innovation of the twentieth century, and the source of much of its pain.”",
+				"language": "en-US",
+				"libraryCatalog": "bookshop.org",
+				"url": "https://bookshop.org/p/books/the-anatomy-of-fascism-robert-o-paxton/7213136",
+				"publisher": "Vintage",
+				"numPages": 336,
+				"attachments": [],
+				"tags": [],
+				"notes": [],
+				"seeAlso": []
+			},
+			{
+				"itemType": "book",
+				"title": "On Tyranny: Twenty Lessons from the Twentieth Century",
+				"creators": [
+					{
+						"firstName": "Timothy",
+						"lastName": "Snyder",
+						"creatorType": "author"
+					}
+				],
+				"date": "2017-02-28T00:00:00-05:00",
+				"ISBN": "9780804190114",
+				"abstractNote": "#1 NEW YORK TIMES BESTSELLER • A “bracing” (Vox) guide for surviving and resisting America’s turn towards authoritarianism, from “a rising public intellectual unafraid to make bold connections between past and present” (The New York Times) “Timothy Snyder reasons with unparalleled clarity, throwing the past and future into sharp relief. He has written the rare kind of book that can be read in one sitting but will keep you coming back to help regain your bearings.”—Masha GessenThe Founding Fathers tried to protect us from the threat they knew, the tyranny that overcame ancient democracy. Today, our political order faces new threats, not unlike the totalitarianism of the twentieth century. We are no wiser than the Europeans who saw democracy yield to fascism, Nazism, or communism. Our one advantage is that we might learn from their experience.On Tyranny is a call to arms and a guide to resistance, with invaluable ideas for how we can preserve our freedoms in the uncertain years to come.",
+				"language": "en-US",
+				"libraryCatalog": "bookshop.org",
+				"url": "https://bookshop.org/p/books/on-tyranny-twenty-lessons-from-the-twentieth-century-timothy-snyder/16520165",
+				"publisher": "Crown",
+				"numPages": 128,
+				"shortTitle": "On Tyranny",
+				"attachments": [],
+				"tags": [],
+				"notes": [],
+				"seeAlso": []
+			}
+		]
+	},
+]
